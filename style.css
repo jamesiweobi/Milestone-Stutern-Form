@@ -48,6 +48,7 @@
 #form {
   margin: auto;
   align-content: center;
+  height: auto;
 }
 label {
   font-size: 13px;
