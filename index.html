@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/6109df2f64.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>MILESTONE PROJECT</title>
+  </head>
+  <body>
+    <section class="section-center">
+      <div class="form-container">
+        <h3 class="alert">You can't submit an empty form</h3>
+        <form id="form">
+          <input
+            type="text"
+            id="first-name"
+            placeholder="First Name"
+            required
+          />
+          <br />
+          <input type="text" id="surname" placeholder="Surname" />
+          <br />
+          <input type="number" id="age" placeholder="Age" />
+          <br />
+          <input type="text" id="first-name" placeholder="First Name" />
+          <br />
+          <label for="club">Class level</label>
+          <br />
+          <select name="club" id="club">
+            <option value="100L">100L</option>
+            <option value="200L">200L</option>
+            <option value="300L">300L</option>
+            <option value="400L">400L</option>
+            <option value="500l">500l</option>
+          </select>
+          <br />
+          <input type="text" id="club" placeholder="Favorite Club" />
+          <br />
+          <button type="button" class="btn-submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
