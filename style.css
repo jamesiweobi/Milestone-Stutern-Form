@@ -16,6 +16,7 @@
 .container {
   margin: 3.125rem auto 3.125rem auto;
   width: 700px;
+  height: auto;
   padding: 1.875rem;
   border-radius: 0.625rem;
   background-color: white;
@@ -99,8 +100,9 @@ input:focus {
 }
 .table {
   width: auto;
-  margin-top: 50px;
+  margin: 50px auto 0 auto;
   height: auto;
+  overflow: scroll;
   transition: all 0.3s linear;
   visibility: hidden;
 }

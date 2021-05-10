@@ -55,7 +55,6 @@ submit.addEventListener('click', (e) => {
   loadTable(data);
   const deleteBtns = document.querySelectorAll('.delete-btn');
   deleteRow(deleteBtns);
-  form.reset();
 });
 
 const getUserInput = () => {
@@ -73,9 +72,12 @@ const getUserInput = () => {
   user.club = club;
   return user;
 };
-
+const nanFormat = (nan) => {
+  if (nan === NaN) return 0;
+  else return nan;
+};
 const loadTable = (data) => {
-  if (data.firstName === '' || data.surname === '' || data.age === NaN) {
+  if (data.firstName === '' || data.surname === '' || data.age < 1) {
     alertMessage = "You can't submit an empty form";
     let alertColor = 'danger';
     alertFunc(alertMessage, alertColor);
@@ -88,7 +90,7 @@ const loadTable = (data) => {
                 <td>${data.id}</td>
                 <td>${data.firstName}</td>
                 <td>${data.surname}</td>
-                <td>${data.age}</td>
+                <td>${nanFormat(data.age)}</td>
                 <td>${data.userClass}</td>
                 <td>${data.club}</td>
                 <td>
@@ -98,6 +100,7 @@ const loadTable = (data) => {
                 </td>
     `;
     tableBody.insertAdjacentHTML('beforeend', tableContent);
+    form.reset();
   }
 };
 
@@ -111,6 +114,7 @@ const deleteRow = (buttons) => {
       toDelete.remove();
     });
   });
+  // if (buttons.length < 2) table.classList.remove('show-table');
 };
 
 const alertFunc = (message, messageType) => {
