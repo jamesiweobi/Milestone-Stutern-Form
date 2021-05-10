@@ -75,15 +75,13 @@ const getUserInput = () => {
 };
 
 const nanFormat = (nan) => {
-  let ans = typeof nan;
-  console.log(nan);
-  console.log(ans);
   if (nan === NaN) {
     return 0;
   } else {
     return nan;
   }
 };
+
 const loadTable = (data) => {
   if (data.firstName === '' || data.surname === '' || data.age < 1) {
     alertMessage = "You can't submit an empty form";
@@ -136,7 +134,5 @@ const alertFunc = (message, messageType) => {
 };
 
 generateUsers.addEventListener('click', () => {
-  myJSON.map((user) => {
-    loadTable(user);
-  });
+  form.reset();
 });
