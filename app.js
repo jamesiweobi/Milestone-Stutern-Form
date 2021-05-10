@@ -47,6 +47,7 @@ const alert = document.querySelector('.alert');
 const tableBody = document.querySelector('#table .tbody');
 const table = document.querySelector('#table');
 let alertMessage = '';
+const generateUsers = document.querySelector('.btn');
 const id = new Date().getTime();
 
 submit.addEventListener('click', (e) => {
@@ -60,7 +61,7 @@ submit.addEventListener('click', (e) => {
 const getUserInput = () => {
   const firstName = document.querySelector('#first-name').value;
   const surname = document.querySelector('#surname').value;
-  const age = parseInt(document.querySelector('#age').value);
+  const age = document.querySelector('#age').value;
   const userClass = document.querySelector('#class').value;
   const club = document.querySelector('#club').value;
   let user = {};
@@ -72,9 +73,16 @@ const getUserInput = () => {
   user.club = club;
   return user;
 };
+
 const nanFormat = (nan) => {
-  if (nan === NaN) return 0;
-  else return nan;
+  let ans = typeof nan;
+  console.log(nan);
+  console.log(ans);
+  if (nan === NaN) {
+    return 0;
+  } else {
+    return nan;
+  }
 };
 const loadTable = (data) => {
   if (data.firstName === '' || data.surname === '' || data.age < 1) {
@@ -100,8 +108,11 @@ const loadTable = (data) => {
                 </td>
     `;
     tableBody.insertAdjacentHTML('beforeend', tableContent);
+    myJSON.push(data);
     form.reset();
   }
+  const deleteBtns = document.querySelectorAll('.delete-btn');
+  deleteRow(deleteBtns);
 };
 
 const deleteRow = (buttons) => {
@@ -114,7 +125,6 @@ const deleteRow = (buttons) => {
       toDelete.remove();
     });
   });
-  // if (buttons.length < 2) table.classList.remove('show-table');
 };
 
 const alertFunc = (message, messageType) => {
@@ -124,3 +134,9 @@ const alertFunc = (message, messageType) => {
     alert.classList.remove(`alert-${messageType}`);
   }, 5000);
 };
+
+generateUsers.addEventListener('click', () => {
+  myJSON.map((user) => {
+    loadTable(user);
+  });
+});

@@ -89,6 +89,22 @@ input:focus {
   transition: all 0.3s linear;
   color: white;
 }
+.btn {
+  padding: 0.5rem;
+  width: 25%;
+  margin-top: 0.625rem;
+  margin-left: 10px;
+  background-color: #a6cdea;
+  outline: hidden;
+  border-style: hidden;
+  border-radius: 4px;
+  transition: all 0.3s linear;
+  color: white;
+}
+.btn:hover {
+  background-color: #3198ed;
+  color: white;
+}
 .btn-submit:hover {
   background-color: #3198ed;
   color: white;
