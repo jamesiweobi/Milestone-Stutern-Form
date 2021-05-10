@@ -17,7 +17,7 @@
   </head>
   <body>
     <section class="section-center">
-      <div class="form-container">
+      <div class="container">
         <h3 class="alert">You can't submit an empty form</h3>
         <form id="form">
           <input
@@ -31,23 +31,47 @@
           <br />
           <input type="number" id="age" placeholder="Age" />
           <br />
-          <input type="text" id="first-name" placeholder="First Name" />
+          <label for="class">Class level</label>
           <br />
-          <label for="club">Class level</label>
-          <br />
-          <select name="club" id="club">
+          <select name="class" id="class">
             <option value="100L">100L</option>
             <option value="200L">200L</option>
             <option value="300L">300L</option>
             <option value="400L">400L</option>
-            <option value="500l">500l</option>
+            <option value="500l">500L</option>
           </select>
           <br />
           <input type="text" id="club" placeholder="Favorite Club" />
           <br />
           <button type="button" class="btn-submit">Submit</button>
+          <table id="table" class="table">
+            <tr>
+              <th>ID</th>
+              <th>Firstname</th>
+              <th>Surname</th>
+              <th>Age</th>
+              <th>Class Level</th>
+              <th>Club</th>
+            </tr>
+            <tbody class="tbody">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                  <button type="button" class="delete-btn">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </form>
       </div>
     </section>
+    <script src="./app.js"></script>
   </body>
 </html>

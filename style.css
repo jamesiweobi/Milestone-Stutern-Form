@@ -8,31 +8,29 @@
 
 .section-center {
   background-color: #ebf3fb;
-  height: auto;
   display: flex;
   justify-content: center;
 }
 
-.form-container {
-  margin: 50px auto 50px auto;
+.container {
+  margin: 3.125rem auto 3.125rem auto;
   width: 700px;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 1.875rem;
+  border-radius: 0.625rem;
   background-color: white;
-  height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 0.938rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s linear;
 }
-.form-container:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.container:hover {
+  box-shadow: 0 5px 0.938rem rgba(0, 0, 0, 0.2);
 }
 .alert {
-  font-size: 13px;
+  font-size: 0.813rem;
   width: 80%;
   text-align: center;
-  margin: 10px auto;
+  margin: 0.625rem auto;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   outline: none;
   visibility: hidden;
 }
@@ -48,13 +46,13 @@
 #form {
   margin: auto;
   align-content: center;
-  height: 100%;
+  transition: all 0.3s linear;
 }
 label {
-  font-size: 13px;
+  font-size: 0.813rem;
 }
 select {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   transition: all 0.3s linear;
   width: 20%;
   text-align: center;
@@ -69,9 +67,9 @@ input {
   border-style: none;
   background-color: #eff4f8;
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  margin: 15px auto;
+  padding: 0.625rem;
+  border-radius: 0.5rem;
+  margin: 0.938rem auto;
   transition: all 0.3s linear;
 }
 input:focus {
@@ -79,9 +77,9 @@ input:focus {
 }
 
 .btn-submit {
-  padding: 8px;
+  padding: 0.5rem;
   width: 25%;
-  margin-top: 10px;
+  margin-top: 0.625rem;
   background-color: #a6cdea;
   outline: hidden;
   border-style: hidden;
@@ -93,8 +91,41 @@ input:focus {
   background-color: #3198ed;
   color: white;
 }
-@media screen and (max-width: 992px) {
-  .form-container {
-    width: 95%;
+
+.delete-btn {
+  color: red;
+  font-size: 12px;
+}
+.table {
+  width: 100%;
+  margin-top: 50px;
+  height: auto;
+  transition: all 0.3s linear;
+  visibility: hidden;
+}
+.show-table {
+  visibility: visible;
+}
+th {
+  background-color: #eff4f8;
+  padding: 0.625rem;
+  font-size: 0.813rem;
+  border-collapse: collapse;
+  font-weight: lighter;
+}
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+@media screen and (max-width: 760px) {
+  body {
+    font-size: 0.813rem;
+  }
+  .container {
+    width: 90%;
   }
 }
