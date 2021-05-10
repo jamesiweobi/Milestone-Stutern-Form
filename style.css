@@ -98,7 +98,7 @@ input:focus {
   font-size: 12px;
 }
 .table {
-  width: 100%;
+  width: auto;
   margin-top: 50px;
   height: auto;
   transition: all 0.3s linear;
