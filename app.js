@@ -43,12 +43,18 @@ const myJSON = [
 
 const form = document.querySelector('#form');
 const submit = document.querySelector('.btn-submit');
+const alert = document.querySelector('.alert');
+const tableBody = document.querySelector('#table .tbody');
+const table = document.querySelector('#table');
+let alertMessage = '';
 const id = new Date().getTime();
 
 submit.addEventListener('click', (e) => {
   e.preventDefault();
   const data = getUserInput();
-  console.log(myJSON);
+  loadTable(data);
+  const deleteBtns = document.querySelectorAll('.delete-btn');
+  deleteRow(deleteBtns);
   form.reset();
 });
 
@@ -66,4 +72,51 @@ const getUserInput = () => {
   user.userClass = userClass;
   user.club = club;
   return user;
+};
+
+const loadTable = (data) => {
+  if (data.firstName === '' || data.surname === '' || data.age === NaN) {
+    alertMessage = "You can't submit an empty form";
+    let alertColor = 'danger';
+    alertFunc(alertMessage, alertColor);
+  } else {
+    alertMessage = 'You successfully added user info';
+    let alertColor = 'success';
+    alertFunc(alertMessage, alertColor);
+    table.classList.add('show-table');
+    const tableContent = `
+                <td>${data.id}</td>
+                <td>${data.firstName}</td>
+                <td>${data.surname}</td>
+                <td>${data.age}</td>
+                <td>${data.userClass}</td>
+                <td>${data.club}</td>
+                <td>
+                  <button type="button" class="delete-btn">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+    `;
+    tableBody.insertAdjacentHTML('beforeend', tableContent);
+  }
+};
+
+const deleteRow = (buttons) => {
+  buttons.forEach((deleteBtn) => {
+    deleteBtn.addEventListener('click', (e) => {
+      const toDelete = e.currentTarget.parentElement.parentElement;
+      alertMessage = 'Deleted User Info';
+      let alertColor = 'success';
+      alertFunc(alertMessage, alertColor);
+      toDelete.remove();
+    });
+  });
+};
+
+const alertFunc = (message, messageType) => {
+  alert.textContent = message;
+  alert.classList.add(`alert-${messageType}`);
+  setInterval(() => {
+    alert.classList.remove(`alert-${messageType}`);
+  }, 5000);
 };
